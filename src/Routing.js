@@ -19,7 +19,7 @@ const Routing = ()=>{
         <Route path='/Listing/:mealId' component ={Listing}/>
         <Route path='/Details' component = {Details}/>
         <Route path="/placeOrder/:restName" component={PlaceOrder}/>
-        <Route path ="/viewBookings" component={ViewOrders}/>
+        <Route path ="/viewBooking" component={ViewOrders}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Footer/>

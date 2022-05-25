@@ -3,7 +3,8 @@ import axios from 'axios';
 import OrderDisplay from './orderDisplay';
 import Header from '../../header';
 
-const url = "https://zomatoaapi.herokuapp.com/updateOrder";
+const url = "https://zomatoaapi.herokuapp.com/orders";
+const url1 ="https://zomatoaapi.herokuapp.com/updateOrder"
 
 
 class viewOrder extends Component {
@@ -30,22 +31,22 @@ class viewOrder extends Component {
         return(
             <>
                 <Header/>
-                <OrderDisplay orderData={this.state.orders}/>
+               <OrderDisplay orderData={this.state.orders}/>
             </>
         )
     }
     componentDidMount(){
-        if(this.props.location){
+    if(this.props.location){
             let queryp = this.props.location.search;
             if(queryp){
                 let data = {
                     "status":queryp.split('&')[0].split('=')[1],
                     "date":queryp.split('&')[2].split('=')[1],
-                    "bank_name":queryp.split('&')[3].split('=')[1],
+                    "bank":queryp.split('&')[3].split('=')[1],
                 }
                 let id = queryp.split('&')[1].split('=')[1].split('_')[1];
-                fetch(`${url}/${id}`,{
-                    method:'PATCH',
+                fetch(`${url1}/${id}`,{
+                    method:'PUT',
                     headers:{
                         'Accept':'application/json',
                         'Content-Type':'application/json'
